@@ -1,0 +1,14 @@
+Artificial Intelligence
+
+Artificial intelligence is a field of computer science focused on building systems
+that perform tasks commonly associated with human intelligence. These tasks include
+learning, reasoning, problem solving, language understanding and perception.
+
+Machine learning is a major area of artificial intelligence. A machine learning
+system learns patterns from examples instead of relying only on rules written by
+a programmer. Deep learning uses neural networks with many layers to learn complex
+patterns from large datasets.
+
+AI systems are used in healthcare, education, transportation, agriculture and
+customer support. Responsible AI development considers fairness, privacy,
+security, transparency and the effect of automation on society.

@@ -1,0 +1,5 @@
+Information Retrieval
+
+Information retrieval is the process of finding relevant information from a collection of documents in response to a user query. An information retrieval system commonly includes document acquisition, text processing, indexing, query processing, ranking, and result presentation.
+
+A search engine is a practical information retrieval application. It represents documents in a searchable form and retrieves documents that best match a query. Relevance ranking helps users find useful information efficiently.

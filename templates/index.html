@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Search{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="eyebrow">INFORMATION RETRIEVAL SYSTEM</div>
+  <h1>Find what <span>fits.</span></h1>
+  <p class="muted">Search your indexed documents with relevance-ranked results.</p>
+  <form class="search-form" action="{{ url_for('home') }}" method="get">
+    <span class="search-icon">⌕</span>
+    <input type="search" name="q" value="{{ query }}" placeholder="Enter keywords or a question..." autofocus>
+    <button type="submit">Search</button>
+  </form>
+  <div class="stats">
+    <div><strong>{{ document_count }}</strong><span>Indexed documents</span></div>
+    <div><strong>{{ search_count }}</strong><span>Searches performed</span></div>
+    <div><strong>TF-IDF</strong><span>Ranking model</span></div>
+  </div>
+</section>
+
+{% if query %}
+<section class="results-section">
+  <div class="section-heading">
+    <div><div class="eyebrow">SEARCH RESULTS</div><h2>Results for “{{ query }}”</h2></div>
+    <span class="result-count">{{ results|length }} found</span>
+  </div>
+  {% if results %}
+    {% for result in results %}
+      <article class="result-card">
+        <div class="result-top">
+          <span class="file-tag">TXT / MD</span>
+          <span class="score">Relevance {{ "%.3f"|format(result.score) }}</span>
+        </div>
+        <h3>{{ result.filename }}</h3>
+        <p>{{ result.snippet }}</p>
+      </article>
+    {% endfor %}
+  {% else %}
+    <div class="empty-state"><h3>No matching documents</h3><p>Try different keywords or upload more documents.</p></div>
+  {% endif %}
+</section>
+{% else %}
+<section class="getting-started">
+  <div class="eyebrow">GET STARTED</div>
+  <h2>Your document collection, searchable.</h2>
+  <p>Upload text documents to build your collection, then search them here.</p>
+  <a class="button secondary" href="{{ url_for('documents') }}">Manage documents</a>
+</section>
+{% endif %}
+{% endblock %}

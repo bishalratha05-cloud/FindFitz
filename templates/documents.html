@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Documents{% endblock %}
+{% block content %}
+<div class="page-heading">
+  <div class="eyebrow">COLLECTION MANAGEMENT</div>
+  <h1>Documents</h1>
+  <p class="muted">Upload text files to add them to the searchable collection.</p>
+</div>
+<section class="panel upload-panel">
+  <h2>Upload documents</h2>
+  <form method="post" enctype="multipart/form-data" class="upload-form">
+    <input type="file" name="files" accept=".txt,.md,text/plain,text/markdown" multiple required>
+    <button type="submit">Upload and index</button>
+  </form>
+  <p class="hint">Supported formats: .txt and .md</p>
+</section>
+<div class="section-heading">
+  <h2>Indexed documents <span class="inline-count">{{ documents|length }}</span></h2>
+  <a class="text-link" href="{{ url_for('rebuild_index') }}">Refresh index ↻</a>
+</div>
+
+{% if documents %}
+  <div class="document-list">
+  {% for doc in documents %}
+    <div class="document-row">
+      <div class="file-icon">TXT</div>
+
+      <div class="document-name">
+        <strong>{{ doc.filename }}</strong>
+        <span>{{ doc.content|length }} characters indexed</span>
+      </div>
+
+      <a class="button secondary"
+         href="{{ url_for('preview_document', document_id=doc.id) }}">
+         Preview
+      </a>
+
+      <form method="post"
+            action="{{ url_for('delete_document', document_id=doc.id) }}"
+            onsubmit="return confirm('Delete this document?')">
+        <button class="delete-button" type="submit">Delete</button>
+      </form>
+    </div>
+  {% endfor %}
+  </div>
+{% else %}
+  <div class="empty-state">
+    <h3>No documents yet</h3>
+    <p>Upload your first text document above.</p>
+  </div>
+{% endif %}
+{% endblock %}

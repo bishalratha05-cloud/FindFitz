@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Inverted Index{% endblock %}
+{% block content %}
+<div class="page-heading"><div class="eyebrow">INDEX STRUCTURE</div><h1>Inverted index</h1><p class="muted">Each normalized term maps to the documents in which it appears.</p></div>
+{% if index %}
+<div class="index-grid">
+{% for term, filenames in index.items() %}
+  <div class="index-item"><strong>{{ term }}</strong><span>{{ filenames|join(", ") }}</span></div>
+{% endfor %}
+</div>
+{% else %}<div class="empty-state"><h3>Index is empty</h3><p>Upload documents to generate the inverted index.</p></div>{% endif %}
+{% endblock %}

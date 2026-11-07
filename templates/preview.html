@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+
+{% block title %}Document Preview{% endblock %}
+
+{% block content %}
+
+<div class="page-heading">
+    <div class="eyebrow">DOCUMENT VIEWER</div>
+    <h1>Document Preview</h1>
+    <p class="muted">{{ document.filename }}</p>
+</div>
+
+<div class="panel">
+    <h2>{{ document.filename }}</h2>
+
+    <hr>
+
+    <pre style="white-space:pre-wrap; overflow-wrap:anywhere; font-family:inherit; font-size:14px; line-height:1.8;">{{ document.content }}</pre>
+
+    <a href="{{ url_for('documents') }}" class="button secondary">
+        Back to Documents
+    </a>
+</div>
+
+{% endblock %}

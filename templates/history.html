@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Search History{% endblock %}
+{% block content %}
+<div class="page-heading"><div class="eyebrow">ACTIVITY</div><h1>Search history</h1><p class="muted">Your latest 50 searches.</p></div>
+{% if searches %}
+<div class="panel table-wrap"><table><thead><tr><th>Query</th><th>Results</th><th>Date and time</th></tr></thead><tbody>
+{% for item in searches %}<tr><td><a href="{{ url_for('home', q=item.query) }}">{{ item.query }}</a></td><td>{{ item.result_count }}</td><td>{{ item.searched_at }}</td></tr>{% endfor %}
+</tbody></table></div>
+{% else %}<div class="empty-state"><h3>No searches yet</h3><p>Your search activity will appear here.</p></div>{% endif %}
+{% endblock %}

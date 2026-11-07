@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+{% block content %}
+<div class="page-heading"><div class="eyebrow">ABOUT THE PROJECT</div><h1>FindFitz</h1><p class="muted">A basic information retrieval system for the Web Search Mining course.</p></div>
+<div class="about-grid">
+  <section class="panel"><h2>How it works</h2><ol class="steps">
+    <li><strong>Document collection</strong><span>Upload .txt and .md files.</span></li>
+    <li><strong>Text processing</strong><span>Tokenization, lowercasing and stemming.</span></li>
+    <li><strong>Vectorization</strong><span>TF-IDF represents documents and queries as vectors.</span></li>
+    <li><strong>Ranking</strong><span>Cosine similarity orders documents by relevance.</span></li>
+  </ol></section>
+  <section class="panel"><h2>Developer</h2><p class="developer-name">Bishal Ratha</p><p><a href="mailto:bishalratha05@gmail.com">bishalratha05@gmail.com</a></p><p><a href="https://github.com/bishalratha05-cloud" target="_blank" rel="noopener">github.com/bishalratha05-cloud</a></p><div class="course-tag">WEB SEARCH MINING</div></section>
+</div>
+{% endblock %}

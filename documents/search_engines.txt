@@ -1,0 +1,5 @@
+Search Engines
+
+A search engine helps users locate information by accepting a query and returning a ranked list of results. A typical search engine uses crawling, indexing, and retrieval components.
+
+The indexing component processes documents and creates data structures such as an inverted index. The retrieval component compares a query with indexed documents and ranks the results using a relevance model. Search quality can be evaluated using precision and recall.

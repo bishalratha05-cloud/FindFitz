@@ -1,0 +1,3 @@
+FindFitz is an information retrieval system.
+FindFitz uses TF-IDF to find relevant documents.
+Information retrieval helps users search for useful information.
